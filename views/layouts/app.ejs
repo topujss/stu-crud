@@ -1,0 +1,66 @@
+<!-- variables -->
+<% const titl = 'Student Database' %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= titl %></title>
+    <link
+      href="//cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/v/bs5/dt-1.12.1/sc-2.0.7/datatables.min.css"
+    />
+
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <%- body %>
+
+    <script src="//code.jquery.com/jquery-3.6.1.min.js"></script>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/v/bs5/dt-1.12.1/sc-2.0.7/datatables.min.js"
+    ></script>
+    <script src="//cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      $('.stu-data-table').DataTable();
+
+      // preload photo
+      const stu_photo = document.getElementById('photo-form');
+      const pre_stu = document.getElementById('pre-student');
+
+      if (stu_photo) {
+        stu_photo.onchange = (e) => {
+          const imgLink = URL.createObjectURL(e.target.files[0]);
+
+          pre_stu.setAttribute('src', imgLink);
+        };
+      }
+
+      // delete btn
+      const delete_btn = document.querySelectorAll('.delete-btn');
+
+      if (delete_btn) {
+        delete_btn.forEach((item) => {
+          item.onclick = () => {
+            const sure = confirm('Are you sure?');
+
+            sure ? true : false;
+          };
+        });
+      }
+    </script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>

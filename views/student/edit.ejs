@@ -1,0 +1,69 @@
+<div class="container my-5" id="student-form">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <a class="mb-3 btn btn-outline-success" href="/student">Home</a>
+      <div class="card shadow-sm">
+        <div class="card-header">
+          <div class="h2 text-center text-info">Update <%= stu.name %> data</div>
+        </div>
+        <div class="card-body">
+          <form action="/student/update/<%= stu.id %>" method="POST" enctype="multipart/form-data">
+            <div class="mb-3 form-floating">
+              <input
+                value="<%= stu.name %>"
+                name="name"
+                type="text"
+                placeholder="name"
+                class="border-primary form-control"
+              />
+              <label class="form-label">Name</label>
+            </div>
+            <div class="mb-3 form-floating">
+              <input
+                value="<%= stu.email %>"
+                name="email"
+                type="text"
+                class="form-control border-secondary"
+                placeholder="name@example.com"
+              />
+              <label class="form-label">Email address</label>
+            </div>
+            <div class="mb-3 form-floating">
+              <input
+                value="<%= stu.cell %>"
+                name="cell"
+                type="text"
+                class="form-control border-success"
+                placeholder="cell"
+              />
+              <label for="" class="form-label">Cell</label>
+            </div>
+            <div class="mb-3">
+              <select name="location" class="form-select">
+                <option value="">-Select-</option>
+                <option <% if (stu.location == 'San Francisco') { %> selected <% } %> value="San Francisco">San Francisco</option>
+                <option <% if (stu.location == 'New York') { %> selected <% } %> value="New York">New York</option>
+                <option <% if (stu.location == 'Michigan') { %> selected <% } %> value="Michigan">Michigan</option>
+                <option <% if (stu.location == 'Montana') { %> selected <% } %> value="Montana">Montana</option> 
+                <option <% if (stu.location == 'Virginia') { %> selected <% } %> value="Virginia">Virginia</option> 
+                <option <% if (stu.location == 'Seattle') { %> selected <% } %> value="Seattle">Seattle</option>
+                <option <% if (stu.location == 'Los Angeles') { %> selected <% } %> value="Los Angeles">Los Angeles</option>
+                <option <% if (stu.location == 'Chicago') { %> selected <% } %> value="Chicago">Chicago</option>
+                <option <% if (stu.location == 'Maryland') { %> selected <% } %> value="Maryland">Maryland</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Photo</label>
+              <br />
+              <img src="/images/students/<%= stu.photo %>" id="pre-student" alt="" />
+              <br />
+              <label for="photo-form"><ion-icon name="images-outline"></ion-icon></label>
+              <input name="photo" type="file" class="border-info" id="photo-form" />
+            </div>
+            <button type="submit" class="btn btn-outline-info btn-lg w-100">Create</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

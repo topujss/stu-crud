@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+// default style
+$size: 50px;
+
+#student-table {
+  img {
+    width: $size;
+    height: $size;
+    border-radius: 7%;
+  }
+}
+
+.btn-style {
+  padding: 5px !important;
+  a {
+    font-size: 11px;
+  }
+}
+
+// form
+#student-form {
+  ion-icon {
+    font-size: 5rem;
+    display: block;
+    color: green;
+  }
+  input[type='file'] {
+    display: none;
+  }
+}
+
+#pre-student {
+  max-width: 100% !important;
+  object-fit: cover;
+}
+
+// student single page
+$tw25: 18rem;
+
+#student-single {
+  img {
+    width: $tw25;
+    height: $tw25;
+    border-radius: 50%;
+    display: block;
+    margin: 1rem auto;
+    object-fit: cover;
+  }
+}
+
+.center {
+  text-align: center;
+}

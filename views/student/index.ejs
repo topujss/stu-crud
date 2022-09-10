@@ -1,0 +1,55 @@
+<div class="container my-5" id="student-table">
+  <div class="row justify-content-center">
+    <div class="col-md-9">
+      <a class="mb-3 btn btn-outline-success" href="/student/create">Add a student</a>
+      <div class="card shadow">
+        <div class="card-body">
+          <div class="h2 text-center text-info">All students Listed</div>
+          <table class="table table-striped stu-data-table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Cell</th>
+                <th scope="col">Location</th>
+                <th scope="col">Photo</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% student.reverse().forEach((ele, index) => { %>
+              <tr class="align-middle">
+                <th scope="row"><%= index +1 %></th>
+                <td><%- ele.name %></td>
+                <td><%- ele.email %></td>
+                <td><%- ele.cell %></td>
+                <td><%- ele.location %></td>
+                <td>
+                  <% if (ele.photo == 'avatar.png') { %>
+                  <img src="/images/<%= ele.photo  %>" alt="" />
+                  <% } else { %>
+                  <img src="/images/students/<%= ele.photo  %>" alt="" />
+
+                  <% } %>
+                </td>
+                <td class="btn-style">
+                  <a class="btn btn-sm btn-info" href="/student/<%= ele.id %>"
+                    ><ion-icon name="eye-outline"></ion-icon
+                  ></a>
+                  <a class="btn btn-sm btn-warning" href="/student/edit/<%= ele.id %>"
+                    ><ion-icon name="create-outline"></ion-icon
+                  ></a>
+                  <a class="btn btn-sm btn-danger delete-btn" href="/student/delete/<%= ele.id %>"
+                    ><ion-icon name="trash"></ion-icon
+                  ></a>
+                </td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
