@@ -6,6 +6,7 @@
  * Learned: student data, create, add to json, read,
  *> Note start:
  * (slash)/ => means in public
+ * in router id should be at the bottom
  * arr.find => get one data from many
  * arr.filter => get all data from every data
  * https://ionic.io/ionicons /> for icons
